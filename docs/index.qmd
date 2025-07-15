@@ -1,7 +1,7 @@
 ---
 format: 
   wildflower-revealjs:
-    footer: <https://saranjeetkaur.github.io/parameterised-reports/>
+    footer: <https://saranjeetkaur.github.io/flower-report/>
     embed-resources: true
 ---
 
@@ -129,7 +129,7 @@ Slides made using [quarto](https://github.com/quarto-dev/quarto) and [Wildflower
 
 ## Thank you! {.flores-slide5 .center}
 
-**Talk link**: saranjeetkaur.github.io/parameterised-reports/
+**Talk link**: saranjeetkaur.github.io/flower-report/
 
 **GitHub**: SaranjeetKaur
 

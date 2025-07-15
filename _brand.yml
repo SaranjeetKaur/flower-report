@@ -1,0 +1,67 @@
+meta:
+  # Short, recognisable name
+  name: BristolR User Group
+  # Key public links (add more if you like)
+  link:
+    home: https://www.meetup.com/bristol-r-user-group/     # Main community page
+    twitter: https://twitter.com/bristolrusers            # X / Twitter handle
+
+color:
+  palette:            # Key colours sampled from the hex sticker
+    cream:   "#FDF3D6"
+    navy:    "#053347"
+    charcoal: "#34323C"
+    gold:    "#F5CA76"
+    orange:  "#D4855C"
+    teal:    "#8A9E9F"
+    mint:    "#B6D9CC"
+    white:   "#FFFFFF"
+    black:   "#000000"
+  # Semantic assignments – adjust to taste
+  foreground: charcoal
+  background: cream
+  primary:    navy
+  secondary:  gold
+  success:    teal
+  info:       mint
+  warning:    orange
+  danger:     orange        # Update if you introduce a red
+  light:      cream
+  dark:       navy
+
+typography:
+  fonts:
+    # Free, easily hosted families that echo the sticker’s friendly serif & clean sans
+    - family: Poppins
+      source: google
+      weight: [400,600,700]
+      style: [normal,italic]
+    - family: Merriweather
+      source: google
+      weight: [700]
+      style: [normal,italic]
+    - family: Fira Code      # Monospace for code snippets
+      source: bunny
+      weight: [400,500]
+      style: [normal,italic]
+
+  base:
+    family: Poppins
+    weight: 400
+    size: 16px
+    line-height: 1.5          # Reads well at body size
+
+  headings:
+    family: Merriweather
+    weight: 700
+    style: normal
+    line-height: 1.2
+    color: primary            # Uses navy for consistency
+
+  monospace:
+    family: Fira Code
+    weight: 400
+    size: 0.9em
+
+# defaults:
+#   # Add Quarto, Shiny, or Bootstrap overrides here only if you need them.

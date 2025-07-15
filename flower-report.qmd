@@ -1,0 +1,92 @@
+---
+title: "Flower Species Report: `r params$sp`"
+format: html
+params:
+  sp: "rose"
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+## Overview
+
+This report provides an overview of the flower species: **`r params$sp`**.
+
+It includes a summary table and height distribution plot.
+
+```{r}
+library(tidyverse)
+
+# Load dataset
+df <- readr::read_csv("data/flower_dataset.csv", show_col_types = FALSE)
+
+# Filter data by species
+df_filtered <- df %>% dplyr::filter(species == params$sp)
+
+# Summary statistics
+summary_table <- df_filtered %>%
+  dplyr::summarise(
+    Count = n(),
+    Average_Height_cm = round(mean(height_cm), 2),
+    Min_Height_cm = min(height_cm),
+    Max_Height_cm = max(height_cm)
+  )
+```
+
+---
+
+## Summary Statistics for `r params$sp`
+
+```{r}
+knitr::kable(summary_table, caption = paste("Basic Summary Statistics for", params$sp))
+```
+
+**Description:**
+
+The summary table above provides statistics for **`r params$sp`**:
+
+- **Number of records:** `r summary_table$Count`
+
+- **Average height:** `r summary_table$Average_Height_cm` cm
+
+- **Minimum height:** `r summary_table$Min_Height_cm` cm
+
+- **Maximum height:** `r summary_table$Max_Height_cm` cm  
+
+These values offer a numerical overview of this species' height characteristics.
+
+---
+
+## Height Distribution of `r params$sp`
+
+```{r}
+# Create the histogram
+hist_plot <- ggplot2::ggplot(df_filtered, ggplot2::aes(x = height_cm)) +
+  ggplot2::geom_histogram(binwidth = 10, fill = "skyblue", color = "black") +
+  ggplot2::labs(
+    title = paste("Height Distribution of", params$sp),
+    x = "Height (cm)",
+    y = "Count"
+  ) +
+  ggplot2::theme_minimal()
+
+# Save plot with species specific name
+hist_path <- paste0("histogram_", gsub(" ", "_", params$sp), ".png")
+ggplot2::ggsave(hist_path, plot = hist_plot, width = 6, height = 4)
+
+
+## Display the histogram
+knitr::include_graphics(hist_path)
+```
+
+**Description:**
+
+The histogram above visualises how the flower heights for **`r params$sp`** are distributed. The x-axis represents height in centimeters, while the y-axis shows the number of flowers in each bin.
+
+---
+
+
+## Additional Notes
+
+The species **`r params$sp`** displays a characteristic height range and variety in sizes. These observations can support further analysis of growth patterns, suitability for cultivation, or comparison with other flower species.

@@ -1,0 +1,52 @@
+meta:
+  # Simple company identity
+  name:
+    short: Datacove        # Public-facing name
+    full: Datacove Limited # Legal name
+  link:                     # Key public touch-points
+    home: https://datacove.co.uk              # Main site
+    linkedin: https://www.linkedin.com/company/datacove-limited
+
+color:
+  palette:                  # Core brand colours
+    cobalt:   "#1D46F3"     # Primary blue from logo
+    black:    "#000000"
+    white:    "#FFFFFF"
+    gray-900: "#111827"
+  # Semantic roles ­— reference palette names where possible
+  foreground: black         # Main text
+  background: white
+  primary:    cobalt        # Links, buttons, accents
+  secondary:  gray-900      # UI chrome / subtle headings
+  light:      white
+  dark:       black
+
+typography:
+  fonts:                    # All freely hostable
+    - family: Inter
+      source: google
+      weight: [400,600,700]
+      style: [normal,italic]
+    - family: Fira Code     # Code samples
+      source: bunny
+      weight: [400,500]
+      style: [normal,italic]
+
+  base:
+    family: Inter
+    weight: 400
+    size: 16px
+    line-height: 1.5
+
+  headings:
+    family: Inter
+    weight: 700
+    line-height: 1.2
+    color: primary
+
+  monospace:
+    family: Fira Code
+    weight: 400
+    size: 0.9em
+
+# Add Bootstrap / Quarto / Shiny overrides here only if you discover gaps.

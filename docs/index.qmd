@@ -22,7 +22,7 @@ Imperial College London
 :::
 
 ::: {.fragment}
-Single report template -> multiple outputs
+Single template report -> render multiple outputs
 :::
 
 ::: {.fragment}
@@ -38,7 +38,7 @@ Accurate, Reproducible, Automated
 :::
 
 ::: {.fragment}
-No repetitive copy-paste
+No repetitive copy-paste, less prone to error
 :::
 
 ## Example use cases {.flores-slide1 .center}
@@ -93,29 +93,90 @@ hibiscus, large, none, 184.0
 
 ::: {.fragment}
 For each species of the flowers, create a report giving a details about their 
-height distribution, size categories, fragrance categories, and an overall 
-summary.
+summary and height distribution.
 :::
 
 ## A .qmd file {.flores-slide2 .center}
 
-:::: {.columns}
-::: {.column width="50%" .fragment}
-**Without params**  
-![With params](../images/flower-report-normal.png){width=70%}
-:::
+**Without params**
 
-::: {.column width="50%" .fragment}
-**With params**  
-![With params](../images/flower-report-params.png){width=70%}
-:::
-::::
+````r
+---
+title: "Flower Species Report: rose"
+format: html
+---
+
+## Load dataset
+
+```r
+library(tidyverse)
+df <- read_csv("data/flower_dataset.csv")
+```
+
+## Filter for species: rose
+```
+df_rose <- df %>% filter(species == "rose")
+```
+
+## Height distribution for rose
+
+```r
+ggplot(df_rose, aes(height_cm)) +
+  geom_histogram()
+```
+````
+
+## With params {.flores-slide2 .center}
+
+````r
+---
+title: "Flower Species Report: `r params$sp`"
+format: html
+params:
+	sp: "rose"
+---
+
+## Load dataset
+
+```r
+library(tidyverse)
+df <- read_csv("data/flower_dataset.csv")
+```
+
+## Filter for species: `r params$sp`
+```
+df_filtered <- df %>% filter(species == params$sp)
+```
+
+## Height distribution for `r params$sp`
+
+```r
+ggplot(df_filtered, aes(height_cm)) +
+  geom_histogram()
+```
+````
 
 ## {.flores-section1 .center}
 
-### Generate report
+### Render reports
 
-![](../images/generate-reports.png){width=70%}
+```r
+library(quarto)
+library(tidyverse)
+
+# Species names
+species <- c("rose", "shoeblack plant", "hibiscus")
+
+# Create a tibble
+reports <- tibble(
+  input = "flower-report.qmd",
+  output_file = stringr::str_glue("{species}.html"),
+  execute_params = purrr::map(species, ~list(sp = .))
+)
+
+# Render each report
+purrr::pwalk(reports, quarto_render)
+```
 
 ## {.flores-title2 .center}
 
@@ -137,7 +198,29 @@ A simple, portable YAML file that codifies brand guidelines (customised) into a 
 
 ### _brand.yml
 
-![](../images/brand.png)
+```yml
+meta:
+  name: Example organisation
+  link: https://posit-dev.github.io/brand-yml
+
+logo: logos/logo.png
+
+color:
+  palette:
+    black: "#1A1A1A"
+    white: "#F9F9F9"
+    orange: "#FF6F20"
+    pink: "#FF3D7F"
+  foreground: black
+  background: white
+  primary: orange
+  danger: pink
+
+typography:
+  fonts:
+    - family: Open Sans
+      source: google
+```
 
 ## {.flores-section3 .center}
 
@@ -162,7 +245,7 @@ Brand.yml Website: <https://posit-dev.github.io/brand-yml/>
 ## Slides {.flores-section3}
 
 ::: {.fragment}
-Slides made using [quarto](https://github.com/quarto-dev/quarto) and [Wildflower](https://github.com/ariibard/quarto-revealjs-wildflower) template
+Slides made using [quarto](https://github.com/quarto-dev/quarto) and [Wildflower](https://github.com/ariibard/quarto-revealjs-wildflowers) theme
 :::
 
 ## Thank you! {.flores-slide5 .center}

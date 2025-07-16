@@ -17,30 +17,51 @@ Imperial College London
 
 ## Parameterised reports {.flores-slide2 .center}
 
+::: {.fragment}
 ### What?
+:::
 
+::: {.fragment}
 Single report template -> multiple outputs
+:::
 
+::: {.fragment}
 Automate using `params`
+:::
 
+::: {.fragment}
 ### Why?
+:::
 
+::: {.fragment}
 Accurate, Reproducible, Automated
+:::
 
+::: {.fragment}
 No repetitive copy-paste
+:::
 
 ## Example use cases {.flores-slide1 .center}
 
+::: {.fragment}
 - Periodic (e.g. weekly, monthly) analytics
+:::
 
+::: {.fragment}
 - Regional (e.g. country, state) reports
+:::
 
+::: {.fragment}
 - Scientific reports for different species (e.g. plants, flowers)
+:::
 
 ## Flower dataset {.flores-section1 .center}
 
+::: {.fragment} 
 Kaggle: [Synthetic flower dataset](https://www.kaggle.com/datasets/abhayayare/flower-dataset)
+:::
 
+::: {.fragment} 
 ```markdown
 species,size,fragrance,height_cm
 rose, medium, mild, 48.55
@@ -48,32 +69,43 @@ shoeblack plant, medium, mild, 147.07
 shoeblack plant, medium, none, 102.93
 hibiscus, large, none, 184.0
 ```
+:::
 
 ## Metadata {.flores-section1 .center}
 
+::: {.fragment}
 `species`: Type of flower (`hibiscus`, `rose`, or `shoeblack plant`)
-  
+:::
+
+::: {.fragment}
 `size`: Size category (`small`, `medium`, or `large`)
-  
+:::
+
+::: {.fragment}
 `fragrance`: Intensity of the fragrance (`strong`, `mild`, or `none`)
-  
+:::
+
+::: {.fragment}
 `height_cm`: Height of flower in centimeters (rounded to 2 decimal places)
+:::
 
 ## Objective {.flores-slide3 .center}
 
+::: {.fragment}
 For each species of the flowers, create a report giving a details about their 
 height distribution, size categories, fragrance categories, and an overall 
 summary.
+:::
 
 ## A .qmd file {.flores-slide2 .center}
 
 :::: {.columns}
-::: {.column width="50%"}
+::: {.column width="50%" .fragment}
 **Without params**  
 ![With params](../images/flower-report-normal.png){width=70%}
 :::
 
-::: {.column width="50%"}
+::: {.column width="50%" .fragment}
 **With params**  
 ![With params](../images/flower-report-params.png){width=70%}
 :::
@@ -97,7 +129,9 @@ summary.
 
 ## `_brand.yml`? {.flores-section2 .center}
 
+::: {.fragment}
 A simple, portable YAML file that codifies brand guidelines (customised) into a format that can be used by Quarto to create branded outputs (for our purpose, reports)
+:::
 
 ## {.flores-section1 .center}
 
@@ -109,7 +143,9 @@ A simple, portable YAML file that codifies brand guidelines (customised) into a 
 
 ### Branding resources
 
+::: {.fragment}
 [BRAND.YML webpage](https://posit-dev.github.io/brand-yml/)
+:::
 
 ## Let's experiment! {.flores-title1 .center}
 
@@ -125,7 +161,9 @@ Brand.yml Website: <https://posit-dev.github.io/brand-yml/>
 
 ## Slides {.flores-section3}
 
+::: {.fragment}
 Slides made using [quarto](https://github.com/quarto-dev/quarto) and [Wildflower](https://github.com/ariibard/quarto-revealjs-wildflower) template
+:::
 
 ## Thank you! {.flores-slide5 .center}
 

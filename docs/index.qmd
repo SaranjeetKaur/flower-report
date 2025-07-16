@@ -198,7 +198,7 @@ A simple, portable YAML file that codifies brand guidelines (customised) into a 
 
 ### _brand.yml
 
-```yml
+```markdown
 meta:
   name: Example organisation
   link: https://posit-dev.github.io/brand-yml
@@ -214,7 +214,6 @@ color:
   foreground: black
   background: white
   primary: orange
-  danger: pink
 
 typography:
   fonts:
@@ -231,6 +230,20 @@ typography:
 :::
 
 ## Let's experiment! {.flores-title1 .center}
+
+## Advantages of branding {.flores-slide1 .center}
+
+::: {.fragment}
+- Consistent branding across outputs
+:::
+
+::: {.fragment}
+- Shared consistency within teams
+:::
+
+::: {.fragment}
+- Minimal effort
+:::
 
 ## Resources {.flores-slide3 .center}
 

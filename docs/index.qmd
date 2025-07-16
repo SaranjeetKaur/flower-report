@@ -129,7 +129,9 @@ Slides made using [quarto](https://github.com/quarto-dev/quarto) and [Wildflower
 
 ## Thank you! {.flores-slide5 .center}
 
-**Talk link**: saranjeetkaur.github.io/flower-report/
+**Talk link**: https://saranjeetkaur.github.io/flower-report/
+
+**Talk repository**: https://github.com/SaranjeetKaur/flower-report
 
 **GitHub**: SaranjeetKaur
 
